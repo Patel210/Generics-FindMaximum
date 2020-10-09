@@ -31,4 +31,19 @@ public class FindMaximum {
 		}
 		return max;
 	}
+
+	/**
+	 * Returns maximum of 3 strings (lexicographically)
+	 */
+	public String max(String string1, String string2, String string3) {
+
+		String max = string1;
+		if (string2.compareTo(max) > 0) {
+			max = string2;
+		}
+		if (string3.compareTo(max) > 0) {
+			max = string3;
+		}
+		return max;
+	}
 }
