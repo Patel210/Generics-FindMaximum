@@ -16,4 +16,19 @@ public class FindMaximum {
 		}
 		return max;
 	}
+
+	/**
+	 * Returns maximum of 3 integers
+	 */
+	public Float max(Float float1, Float float2, Float float3) {
+
+		Float max = float1;
+		if (float2.compareTo(max) > 0) {
+			max = float2;
+		}
+		if (float3.compareTo(max) > 0) {
+			max = float3;
+		}
+		return max;
+	}
 }
