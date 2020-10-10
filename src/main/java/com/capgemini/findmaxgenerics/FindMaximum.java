@@ -1,41 +1,45 @@
 package com.capgemini.findmaxgenerics;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.NoSuchElementException;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 public class FindMaximum<E extends Comparable<E>> {
 
-	E e1, e2, e3;
+	ArrayList<E> list;
 
 	/**
-	 * Constructor
+	 * Constructions with variable arguments
 	 */
-	public FindMaximum(E e1, E e2, E e3) {
-		super();
-		this.e1 = e1;
-		this.e2 = e2;
-		this.e3 = e3;
+	public FindMaximum(E... items) {
+		list = new ArrayList<E>();
+		for (E item : items) {
+			this.list.add(item);
+		}
 	}
 
 	/**
-	 * @return Maximum of 3 fields
+	 * @return maximum of elements in the list
 	 */
 	public E max() {
-		return max(e1, e2, e3);
+		return max(list);
 	}
 
 	/**
 	 * @param <E>
-	 * @param e1
-	 * @param e2
-	 * @param e3
-	 * @return Maximum of 3 parameters
+	 * @param list
+	 * @return maximum of elements in the list
 	 */
-	private E max(E e1, E e2, E e3) {
-		E max = e1;
-		if (e2.compareTo(max) > 0) {
-			max = e2;
+	public static <E extends Comparable<E>> E max(ArrayList<E> list) {
+		try {
+			list = Optional.ofNullable(list).stream().flatMap(a -> a.stream()).filter(x -> !Objects.isNull(x))
+					.collect(Collectors.toCollection(ArrayList::new));
+			return Collections.max(list);
+		} catch (NoSuchElementException e) {
+			return null;
 		}
-		if (e3.compareTo(max) > 0) {
-			max = e3;
-		}
-		return max;
 	}
 }

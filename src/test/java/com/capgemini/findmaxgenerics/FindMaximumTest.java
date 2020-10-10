@@ -6,65 +6,65 @@ import org.junit.Test;
 public class FindMaximumTest {
 
 	@Test
-	public void maximumIntegerAtPosition1Test() {
-		FindMaximum<Integer> findMaximum = new FindMaximum(6, 3, 2);
+	public void given6Integers_ShouldReturnTheMaxTest() {
+		FindMaximum<Integer> findMaximum = new FindMaximum(-8, 5, 3, 13, 0, 7); // 6 parameters
 		Integer max = findMaximum.max();
-		assertEquals(6, (int) max);
+		assertEquals(13, (int) max);
 	}
 
 	@Test
-	public void maximumIntegerAtPosition2Test() {
-		FindMaximum<Integer> findMaximum = new FindMaximum(6, 8, 2);
+	public void given2IntegersAnd1NullInput_ShouldReturnTheMaxTest() {
+		FindMaximum<Integer> findMaximum = new FindMaximum(-8, null, 37); // 3 parameters
 		Integer max = findMaximum.max();
-		assertEquals(8, (int) max);
+		assertEquals(37, (int) max);
 	}
 
 	@Test
-	public void maximumIntegerAtPosition3Test() {
-		FindMaximum<Integer> findMaximum = new FindMaximum<Integer>(6, 3, 11);
+	public void given3NullIntegers_ShouldReturnNullTest() {
+		FindMaximum<Integer> findMaximum = new FindMaximum<Integer>(null, null, null); // 3 parameters
 		Integer max = findMaximum.max();
-		assertEquals(11, (int) max);
+		assertEquals(null, max);
 	}
 
 	@Test
-	public void testMaximumFloatAtPosition1Test() {
-		FindMaximum<Float> findMaximum = new FindMaximum<Float>(6.0f, 3.0f, 2.0f);
+	public void given6Floats_ShouldReturnTheMaxTest() {
+		FindMaximum<Float> findMaximum = new FindMaximum<Float>(-8.0f, 5.0f, 3.0f, 13.0f, 0f, 7.0f); // 6 parameters
 		Float max = findMaximum.max();
-		assertEquals(new Float(6.0f), max);
+		assertEquals(new Float(13.0f), max);
 	}
 
 	@Test
-	public void testMaximumFloatAtPosition2Test() {
-		FindMaximum<Float> findMaximum = new FindMaximum<Float>(6.0f, 8.0f, 2.0f);
+	public void given3Floats_ShouldReturnTheMaxTest() {
+		FindMaximum<Float> findMaximum = new FindMaximum<Float>(-8.0f, 5.0f, 37.0f); // 3 parameters
 		Float max = findMaximum.max();
-		assertEquals(new Float(8.0f), max);
+		assertEquals(new Float(37.0f), max);
 	}
 
 	@Test
-	public void testMaximumFloatAtPosition3Test() {
-		FindMaximum<Float> findMaximum = new FindMaximum<Float>(6.0f, 3.0f, 11.0f);
+	public void given3NullFloat_ShouldReturnNullTest() {
+		FindMaximum<Float> findMaximum = new FindMaximum<Float>(null, null, null); // 3 parameters
 		Float max = findMaximum.max();
-		assertEquals(new Float(11.0f), max);
+		assertEquals(null, max);
 	}
 
 	@Test
-	public void maximumStringAtPosition1test() {
-		FindMaximum<String> findMaximum = new FindMaximum<String>("Peach", "Apple", "Banana");
+	public void given3Strings_ShouldReturnTheMax_Lexicographically_Test() {
+		FindMaximum<String> findMaximum = new FindMaximum<String>("Peach", "Apple", "Banana"); // 3 parameters
 		String max = findMaximum.max();
 		assertEquals("Peach", max);
 	}
 
 	@Test
-	public void maximumStringAtPosition2test() {
-		FindMaximum<String> findMaximum = new FindMaximum<String>("Banana", "Peach", "Apple");
+	public void given3StringsAnd1NullInput_ShouldReturnTheMax_Lexicographically_Test() {
+		FindMaximum<String> findMaximum = new FindMaximum<String>("Apple", "Mango", null, "Peach", "Strawberry"); // 5 parameters
 		String max = findMaximum.max();
-		assertEquals("Peach", max);
+		assertEquals("Strawberry", max);
 	}
 
 	@Test
-	public void maximumStringAtPosition3test() {
-		FindMaximum<String> findMaximum = new FindMaximum<String>("Apple", "Banana", "Peach");
+	public void given3NullStrings_ShouldReturnNullTest() {
+		FindMaximum<String> findMaximum = new FindMaximum<String>(null, null, null); // 3 parameters
 		String max = findMaximum.max();
-		assertEquals("Peach", max);
+		assertEquals(null, max);
 	}
 }
