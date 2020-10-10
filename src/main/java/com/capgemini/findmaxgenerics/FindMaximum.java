@@ -37,9 +37,18 @@ public class FindMaximum<E extends Comparable<E>> {
 		try {
 			list = Optional.ofNullable(list).stream().flatMap(a -> a.stream()).filter(x -> !Objects.isNull(x))
 					.collect(Collectors.toCollection(ArrayList::new));
-			return Collections.max(list);
+			E max =  Collections.max(list);
+			printMax(list, max);
+			return max;
 		} catch (NoSuchElementException e) {
 			return null;
 		}
+	}
+	
+	/**
+	 * Prints the max of list
+	 */
+	public static <E> void printMax(ArrayList<E> list, E max) {
+		System.out.println("Maximum of "+ list + ": "+ max);
 	}
 }
