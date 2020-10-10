@@ -1,69 +1,70 @@
 package com.capgemini.findmaxgenerics;
 
 import static org.junit.Assert.*;
-import org.junit.Before;
 import org.junit.Test;
 
 public class FindMaximumTest {
 
-	private FindMaximum findMaximum;
-
-	@Before
-	public void setup() {
-		findMaximum = new FindMaximum();
-	}
-
 	@Test
 	public void maximumIntegerAtPosition1Test() {
-		Integer max = findMaximum.max(6, 3, 2);
+		FindMaximum<Integer> findMaximum = new FindMaximum(6, 3, 2);
+		Integer max = findMaximum.max();
 		assertEquals(6, (int) max);
 	}
 
 	@Test
 	public void maximumIntegerAtPosition2Test() {
-		Integer max = findMaximum.max(6, 8, 2);
+		FindMaximum<Integer> findMaximum = new FindMaximum(6, 8, 2);
+		Integer max = findMaximum.max();
 		assertEquals(8, (int) max);
 	}
 
 	@Test
 	public void maximumIntegerAtPosition3Test() {
-		Integer max = findMaximum.max(6, 3, 11);
+		FindMaximum<Integer> findMaximum = new FindMaximum<Integer>(6, 3, 11);
+		Integer max = findMaximum.max();
 		assertEquals(11, (int) max);
 	}
 
 	@Test
 	public void testMaximumFloatAtPosition1Test() {
-		Float max = findMaximum.max(6.0f, 3.0f, 2.0f);
+		FindMaximum<Float> findMaximum = new FindMaximum<Float>(6.0f, 3.0f, 2.0f);
+		Float max = findMaximum.max();
 		assertEquals(new Float(6.0f), max);
 	}
 
 	@Test
 	public void testMaximumFloatAtPosition2Test() {
-		Float max = findMaximum.max(6.0f, 8.0f, 2.0f);
+		FindMaximum<Float> findMaximum = new FindMaximum<Float>(6.0f, 8.0f, 2.0f);
+		Float max = findMaximum.max();
 		assertEquals(new Float(8.0f), max);
 	}
 
 	@Test
 	public void testMaximumFloatAtPosition3Test() {
-		Float max = findMaximum.max(6.0f, 3.0f, 11.0f);
+		FindMaximum<Float> findMaximum = new FindMaximum<Float>(6.0f, 3.0f, 11.0f);
+		Float max = findMaximum.max();
 		assertEquals(new Float(11.0f), max);
 	}
 
 	@Test
 	public void maximumStringAtPosition1test() {
-		String max = findMaximum.max("Peach", "Apple", "Banana");
+		FindMaximum<String> findMaximum = new FindMaximum<String>("Peach", "Apple", "Banana");
+		String max = findMaximum.max();
 		assertEquals("Peach", max);
 	}
 
 	@Test
 	public void maximumStringAtPosition2test() {
-		String max = findMaximum.max("Banana", "Peach", "Apple");
+		FindMaximum<String> findMaximum = new FindMaximum<String>("Banana", "Peach", "Apple");
+		String max = findMaximum.max();
 		assertEquals("Peach", max);
 	}
 
 	@Test
 	public void maximumStringAtPosition3test() {
-		String max = findMaximum.max("Apple", "Banana", "Peach");
+		FindMaximum<String> findMaximum = new FindMaximum<String>("Apple", "Banana", "Peach");
+		String max = findMaximum.max();
 		assertEquals("Peach", max);
 	}
 }
